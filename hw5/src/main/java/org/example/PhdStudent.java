@@ -1,3 +1,5 @@
+package org.example;
+
 class PhdStudent extends GraduateStudent {
 // . . .
 
@@ -16,4 +18,3 @@ class PhdStudent extends GraduateStudent {
 
     }
 }
-

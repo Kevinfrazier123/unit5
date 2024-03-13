@@ -1,3 +1,5 @@
+package org.example;
+
 class MsStudent extends GraduateStudent {
     // . . .
 
@@ -13,7 +15,7 @@ class MsStudent extends GraduateStudent {
     }
     @Override
     public void printInvoice() {
-    // . . .
+        // . . .
 
 
     }

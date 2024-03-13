@@ -1,3 +1,5 @@
+package org.example;
+
 abstract public class Student {
 
     // . . .
@@ -11,17 +13,3 @@ abstract public class Student {
     abstract public void printInvoice();
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
