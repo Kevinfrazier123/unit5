@@ -4,6 +4,9 @@ package org.example;
 //Group members: Kevin Frazier
 
 //imports…
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Scanner;
 
 public class DriverClass {
 
@@ -34,6 +37,7 @@ public class DriverClass {
 
         //***********
         int [] undergradCrnsTaken = {4587,2599};
+
         s = new UndergraduateStudent ("Jamila Jones" ,
                 "ja5225" ,
                 undergradCrnsTaken ,
