@@ -24,36 +24,48 @@ class UndergraduateStudent extends Student{
 
         double totalPayment = 0;
 
-        for (Integer crn : undergradCrnsTaken) {
-            // Adjust total payment based on credit hours for each course
-            switch (crn) {
-                case 4587:
-                    totalPayment += 4 * 120.25; // Credit hours * cost per credit hour
-                    break;
-                case 4599:
-                    totalPayment += 3 * 120.25;
-                    break;
-                case 8997:
-                    totalPayment += 1 * 120.25;
-                    break;
-                case 9696:
-                    totalPayment += 3 * 120.25;
-                    break;
-                case 4580:
-                    totalPayment += 1 * 120.25;
-                    break;
-                case 2599:
-                    totalPayment += 3 * 120.25;
-                    break;
-                case 1997:
-                    totalPayment += 1 * 120.25;
-                    break;
-                case 3696:
-                    totalPayment += 2 * 120.25;
-                    break;
-                // Add cases for other CRNs similarly
+        if (resident == true) {
+
+            for (Integer crn : undergradCrnsTaken) {
+                // Adjust total payment based on credit hours for each course
+                switch (crn) {
+                    case 4587:
+                        totalPayment += 4 * 120.25; // Credit hours * cost per credit hour
+                        break;
+                    case 2599:
+                        totalPayment += 3 * 120.25;
+                        break;
+                    case 8997:
+                        totalPayment += 1 * 120.25;
+                        break;
+                    case 9696:
+                        totalPayment += 3 * 120.25;
+                        break;
+
+                    // Add cases for other CRNs similarly
+                }
             }
-        }
+        } else {
+            for (Integer crn : undergradCrnsTaken) {
+                // Adjust total payment based on credit hours for each course
+                switch (crn) {
+                    case 4587:
+                        totalPayment += (4 * 120.25) * 2; // Credit hours * cost per credit hour
+                        break;
+                    case 2599:
+                        totalPayment += (3 * 120.25) * 2;
+                        break;
+                    case 8997:
+                        totalPayment += (1 * 120.25) * 2 ;
+                        break;
+                    case 9696:
+                        totalPayment += (3 * 120.25) * 2;
+                        break;
+
+                }   }       }
+
+
+
         // Add health and id fees
         totalPayment += 35;
         double discount = totalPayment * 0.25;
