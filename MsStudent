@@ -1,0 +1,111 @@
+class MsStudent extends GraduateStudent {
+	private String name;
+	private String id;
+	private int[] gradCrnsTaken;
+	private int crn;
+	
+	public MsStudent(String name, String id, int[] gradCrnsTaken, int crn) {
+		
+		super(name, id, crn);
+		
+		this.name = name;
+		this.id = id;
+		this.gradCrnsTaken = gradCrnsTaken;
+		this.crn = crn;
+	}
+	
+	private double calculateTotalPayment() {
+		
+		double healthFee = 35.00;
+		double totalPayment = 0;
+		
+		for(Integer crn : gradCrnsTaken) {
+            switch(crn) {
+                case 4587:
+                    totalPayment += 4 * 300.00;
+                    break;
+                case 4599:
+                    totalPayment += 3 * 300.00;
+                    break;
+                case 8997:
+                    totalPayment += 1 * 300.00;
+                    break;
+                case 9696:
+                    totalPayment += 3 * 300.00;
+                    break;
+                case 4580:
+                    totalPayment += 1 * 300.00;
+                    break;
+                case 2599:
+                    totalPayment += 3 * 300.00;
+                    break;
+                case 1997:
+                    totalPayment += 1 * 300.00;
+                    break;
+                case 5696:
+                	totalPayment += 2 * 300.00;
+                	break;
+                case 7587:
+                	totalPayment += 5 * 300.00;
+                	break;
+                case 3696:
+                    totalPayment += 2 * 300.00;
+                    break;
+            }
+		}
+		
+		return totalPayment + healthFee;
+	}
+	
+	@Override
+	public void printInvoice() {
+		
+		System.out.println("\nVALENCE COLLEGE");
+        System.out.println("ORLANDO FL 10101");
+        System.out.println("--------------------");
+        System.out.print("\n");
+        System.out.println("Fee Invoice Prepared for Student: " + "\n" + id + " - " + name);
+        System.out.println("\n1 Credit Hour = $300.00 \n");
+        System.out.println("CRN     CR_PREFIX   CR_HOURS");
+        
+        for(Integer crn : gradCrnsTaken) {
+            switch(crn) {
+                case 4587:
+                    System.out.println("4587    MAT 236     4" + "       $" + String.format("%.2f", 300.00 * 4));
+                    break;
+                case 4599:
+                    System.out.println("4599    COP 220     3" + "       $" + String.format("%.2f", 300.00 * 3));
+                    break;
+                case 8997:
+                    System.out.println("8997    GOL 124     1" + "       $" + String.format("%.2f", 300.00 * 1));
+                    break;
+                case 9696:
+                    System.out.println("9696    COP 100     3" + "       $" + String.format("%.2f", 300.00 * 3));
+                    break;
+                case 4580:
+                    System.out.println("4580    MAT 136     1" + "       $" + String.format("%.2f", 300.00 * 1));
+                    break;
+                case 2599:
+                    System.out.println("2599    COP 260     3" + "       $" + String.format("%.2f", 300.00 * 3));
+                    break;
+                case 1997:
+                    System.out.println("1997    CAP 424     1" + "       $" + String.format("%.2f", 300.00 * 1));
+                    break;
+                case 5696:
+                	System.out.println("5696    KOL 110     2" + "       $" + String.format("%.2f", 300.00 * 2));
+                	break;
+                case 7587:
+                	System.out.println("7587    MAT 936     5" + "       $" + String.format("%.2f", 300.00 * 5));
+                	break;
+                case 3696:
+                    System.out.println("3696    KOL 110     2" + "       $" + String.format("%.2f", 300.00 * 2));
+                    break;
+            }
+        }
+        
+        System.out.print("\n");
+        System.out.println("\tHealth & id fees    $35.00");
+        System.out.println("-----------------------------------");
+        System.out.println("\tTotal Payments:     $" + String.format("%.2f", calculateTotalPayment()));
+	}
+}
