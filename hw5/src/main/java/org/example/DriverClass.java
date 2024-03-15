@@ -33,7 +33,7 @@ public class DriverClass {
                 1997);
 
 
-        s.printInvoice();
+       // s.printInvoice();
 
         //***********
         int [] undergradCrnsTaken = {4587,2599};
@@ -45,7 +45,7 @@ public class DriverClass {
                 false );
 
 
-        s.printInvoice();
+        //s.printInvoice();
 
 
 
