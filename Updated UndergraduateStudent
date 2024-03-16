@@ -1,0 +1,130 @@
+class UndergraduateStudent extends Student{
+	
+	private String name;
+	private String id;
+	private int[] undergradCrnsTaken;
+	private double gpa;
+	private boolean resident;
+
+	public UndergraduateStudent(String name, String id, int[] undergradCrnsTaken, double gpa, boolean resident) {
+		super(name, id);
+		
+		this.name = name;
+		this.id = id;
+		this.undergradCrnsTaken = undergradCrnsTaken;
+		this.gpa = gpa;
+		this.resident = resident;
+	}
+		
+	private double calculateTotalPayment() {
+		
+		double totalPayment = 0;
+		double creditPerHour = 0;
+		resident = false;
+		
+		if(resident == true) {
+			creditPerHour = 120.25;
+		} else {
+			creditPerHour = 120.25 * 2;
+		}
+		
+		for(Integer crn : undergradCrnsTaken) {
+            switch(crn) {
+                case 4587:
+                    totalPayment += 4 * creditPerHour;
+                    break;
+                case 4599:
+                    totalPayment += 3 * creditPerHour;
+                    break;
+                case 8997:
+                    totalPayment += 1 * creditPerHour;
+                    break;
+                case 9696:
+                    totalPayment += 3 * creditPerHour;
+                    break;
+                case 4580:
+                    totalPayment += 1 * creditPerHour;
+                    break;
+                case 2599:
+                    totalPayment += 3 * creditPerHour;
+                    break;
+                case 1997:
+                    totalPayment += 1 * creditPerHour;
+                    break;
+                case 3696:
+                    totalPayment += 2 * creditPerHour;
+                    break;
+            }
+		}
+		
+		totalPayment += 35;
+		double discount = totalPayment * 0.25;
+        // Apply discount if GPA is 3.5 or higher and total payments exceed $700
+        if(gpa >= 3.5 && totalPayment > 700) {
+            System.out.println("               $" + totalPayment);
+            System.out.println("\n            -$" + String.format("%.2f", discount));
+            System.out.println("                  -----");
+            totalPayment *= 0.75; // 25% discount
+        }
+        
+        return totalPayment;
+	}
+	
+	@Override
+	public void printInvoice() {
+		
+		double creditPerHour = 120.25;
+		resident = false;
+		
+		if(resident == true) {
+			creditPerHour = 120.25;
+		} else {
+			creditPerHour = 120.25 * 2;
+		}
+		
+		System.out.println("\nVALENCE COLLEGE");
+        System.out.println("ORLANDO FL 10101");
+        System.out.println("--------------------");
+        System.out.print("\n");
+        System.out.println("Fee Invoice Prepared for Student: " + "\n" + id + " - " + name);
+        System.out.println("\n1 Credit Hour = " + "$" + String.format("%.2f", creditPerHour) + "\n");
+        System.out.println("CRN     CR_PREFIX   CR_HOURS");
+
+        for(Integer crn : undergradCrnsTaken) {
+
+            switch(crn) {
+                case 4587:
+                    System.out.println("4587    MAT 236     4" + "       $" + String.format("%.2f", creditPerHour * 4));
+                    break;
+                case 4599:
+                    System.out.println("4599    COP 220     3" + "       $" + String.format("%.2f", creditPerHour * 3));
+                    break;
+                case 8997:
+                    System.out.println("8997    GOL 124     1" + "       $" + String.format("%.2f", creditPerHour * 1));
+                    break;
+                case 9696:
+                    System.out.println("9696    COP 100     3" + "       $" + String.format("%.2f", creditPerHour * 3));
+                    break;
+                case 4580:
+                    System.out.println("4580    MAT 136     1" + "       $" + String.format("%.2f", creditPerHour * 1));
+                    break;
+                case 2599:
+                    System.out.println("2599    COP 260     3" + "       $" + String.format("%.2f", creditPerHour * 3));
+                    break;
+                case 1997:
+                    System.out.println("1997    CAP 424     1" + "       $" + String.format("%.2f", creditPerHour * 1));
+                    break;
+                case 3696:
+                    System.out.println("3696    KOL 110     2" + "       $" + String.format("%.2f", creditPerHour * 2));
+                    break;
+            }
+        }
+
+        System.out.print("\n");
+        System.out.println("\tHealth & id fees    $35.00");
+       
+        // Calculating total payments
+        System.out.println("-----------------------------------");
+        System.out.println("\tTotal Payments:     $" + String.format("%.2f", calculateTotalPayment()));
+    }
+}
