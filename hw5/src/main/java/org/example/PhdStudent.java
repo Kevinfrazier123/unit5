@@ -16,11 +16,10 @@ private int crn;
 
         super ( name , id , crn );
         // . . .
-        this.name = name;
-        this.id = id;
+
         this.advisor = advisor;
         this.researchSubject = researchSubject;
-        this.crn = crn;
+
 
     }
 
@@ -30,7 +29,7 @@ private int crn;
         double research = 700;
         double health = 35;
         double total = research + health;
-        
+
 
 
         System.out.println("\nVALENCE COLLEGE");
@@ -49,18 +48,6 @@ private int crn;
 
 
     }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 }
