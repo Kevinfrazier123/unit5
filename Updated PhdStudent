@@ -1,0 +1,38 @@
+class PhdStudent extends GraduateStudent {
+	
+	private String name;
+	private String id;
+	private String advisor;
+	private String researchSubject;
+	private int crn;
+	
+	public PhdStudent (String name, String id, String advisor, String researchSubject, int crn) {
+	
+		super(name, id, crn);
+		
+		this.name = name;
+		this.id = id;
+		this.advisor = advisor;
+		this.researchSubject = researchSubject;
+		this.crn = crn;
+	}
+
+	@Override
+	public void printInvoice() {
+		
+		double research = 700.00;
+		double health = 35.00;
+		double total = research + health;
+		
+		System.out.println("\nVALENCE COLLEGE");
+        System.out.println("ORLANDO FL 10101");
+        System.out.println("--------------------");
+        System.out.print("\n");
+        System.out.println("Fee Invoice Prepared for Student: " + "\n" + id + " - " + name);
+        System.out.println("\nRESEARCH");
+        System.out.println(researchSubject + "\t\t " + "   $" + String.format("%.2f", research) + "\n");
+        System.out.println("\tHealth & id fees " + "   $" + String.format("%.2f", health) );
+        System.out.println("-----------------------------------");
+        System.out.println("\tTotal Payments   " + "   $" + String.format("%.2f", total));
+	}
+}
